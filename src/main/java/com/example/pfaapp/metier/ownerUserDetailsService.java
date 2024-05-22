@@ -1,4 +1,4 @@
-/*
+
 package com.example.pfaapp.metier;
 
 import com.example.pfaapp.dao.entities.Owner;
@@ -29,4 +29,4 @@ public class ownerUserDetailsService implements UserDetailsService {
     }
 
 }
-*/
+
