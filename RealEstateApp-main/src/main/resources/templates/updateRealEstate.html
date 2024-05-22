@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>Update Real Estate</title>
+    <link rel="stylesheet" href="/webjars/bootstrap/5.3.3/css/bootstrap.min.css"/>
+</head>
+<body>
+<div class="container mt-5">
+    <h2>Update Real Estate</h2>
+    <!-- Main form for updating real estate details -->
+    <form th:action="@{/updateRealEstate(id=${realEstate.id})}" th:object="${realEstate}" method="post">
+        <div class="mb-3">
+            <label for="title" class="form-label">Title</label>
+            <input type="text" class="form-control" th:field="*{title}" id="title">
+        </div>
+        <div class="mb-3">
+            <label for="description" class="form-label">Description</label>
+            <textarea class="form-control" th:field="*{description}" id="description"></textarea>
+        </div>
+        <div class="mb-3">
+            <label for="price" class="form-label">Price</label>
+            <input type="number" class="form-control" th:field="*{price}" id="price">
+        </div>
+        <div class="mb-3">
+            <label for="location" class="form-label">Location</label>
+            <input type="text" class="form-control" th:field="*{location}" id="location">
+        </div>
+        <div class="mb-3">
+            <label for="contactInfo" class="form-label">Contact Info</label>
+            <input type="text" class="form-control" th:field="*{contactInfo}" id="contactInfo">
+        </div>
+        <div class="mb-3">
+            <label for="type" class="form-label">Type</label>
+            <select id="type" class="form-control" th:field="*{type}">
+                <option value="">Choose...</option>
+                <option value="APARTMENT">Apartment</option>
+                <option value="VILLA">Villa</option>
+                <option value="STUDIO">Studio</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Update</button>
+    </form>
+
+    <!-- Separate form for uploading images -->
+    <form th:action="@{/uploadImages}" method="post" enctype="multipart/form-data">
+        <div class="mb-3">
+            <label for="images" class="form-label">Upload Images</label>
+            <input type="file" class="form-control" id="images" name="images" multiple>
+        </div>
+        <button type="submit" class="btn btn-secondary">Upload Images</button>
+    </form>
+</div>
+<script src="/webjars/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
